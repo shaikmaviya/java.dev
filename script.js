@@ -1,5 +1,8 @@
 // Smooth animations and interactions
 
+// Check if device prefers reduced motion
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
 // Intersection Observer for scroll animations
 const observerOptions = {
   threshold: 0.1,
@@ -32,24 +35,35 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
           behavior: 'smooth',
           block: 'start'
         });
+        // Close mobile menu if open
+        const menu = document.querySelector('.menu');
+        if (menu && menu.classList.contains('open')) {
+          menu.classList.remove('open');
+          const burger = document.getElementById('burger');
+          if (burger) burger.setAttribute('aria-expanded', 'false');
+        }
       }
     }
   });
 });
 
-// Add smooth parallax effect to hero section
+// Add gentle parallax effect to hero section (disable on mobile for performance)
 const heroSection = document.querySelector('.hero-visual');
-if (heroSection) {
+const isMobile = window.innerWidth < 900;
+
+if (heroSection && !isMobile && !prefersReducedMotion) {
   window.addEventListener('scroll', () => {
     const scrollY = window.scrollY;
-    const parallaxValue = scrollY * 0.5;
+    const parallaxValue = scrollY * 0.3; // Reduced from 0.5 for smoother effect
     heroSection.style.transform = `translateY(${parallaxValue}px)`;
-  });
+  }, { passive: true });
 }
 
-// Button ripple effect
+// Button ripple effect (optimized for mobile)
 document.querySelectorAll('button').forEach(button => {
   button.addEventListener('click', function(e) {
+    if (e.clientX === 0 && e.clientY === 0) return; // Skip keyboard activation
+    
     const ripple = document.createElement('span');
     const rect = this.getBoundingClientRect();
     const size = Math.max(rect.width, rect.height);
@@ -67,33 +81,78 @@ document.querySelectorAll('button').forEach(button => {
   });
 });
 
-// Fade in text on load
-const textElements = document.querySelectorAll('h1, h2, h3, p');
-textElements.forEach((el, index) => {
-  el.style.animation = `fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) ${index * 0.05}s both`;
-});
-
-// Mobile menu smooth toggle
+// Mobile menu smooth toggle with accessibility
 const burger = document.getElementById('burger');
 const menu = document.querySelector('.menu');
 
-if (burger) {
-  burger.addEventListener('click', () => {
+if (burger && menu) {
+  burger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = menu.classList.contains('open');
     menu.classList.toggle('open');
-    burger.style.animation = 'smoothRotate 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    burger.setAttribute('aria-expanded', !isOpen);
+    
+    if (!prefersReducedMotion) {
+      burger.style.animation = 'smoothRotate 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', () => {
+    if (menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  });
+
+  // Close menu when resizing to desktop
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 900 && menu.classList.contains('open')) {
+      menu.classList.remove('open');
+      burger.setAttribute('aria-expanded', 'false');
+    }
+  }, { passive: true });
+}
+
+// Smooth animations on page load
+window.addEventListener('load', () => {
+  if (!prefersReducedMotion) {
+    document.body.style.animation = 'smoothFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+  }
+});
+
+// Lazy load images for better mobile performance
+if ('IntersectionObserver' in window) {
+  const imageObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.dataset.src) {
+          img.src = img.dataset.src;
+          img.removeAttribute('data-src');
+          imageObserver.unobserve(img);
+        }
+      }
+    });
+  });
+
+  document.querySelectorAll('img[data-src]').forEach(img => {
+    imageObserver.observe(img);
   });
 }
 
-// Smooth color transitions on cards
-document.querySelectorAll('.card').forEach(card => {
-  card.addEventListener('mouseenter', function() {
-    this.style.transition = 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
-  });
+// Touch event optimizations for mobile
+document.addEventListener('touchstart', function() {}, { passive: true });
+
+// Add focus visible styles for accessibility
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Tab') {
+    document.body.classList.add('keyboard-nav');
+  }
 });
 
-// Add loading animation
-window.addEventListener('load', () => {
-  document.body.style.animation = 'smoothFadeIn 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+document.addEventListener('mousedown', () => {
+  document.body.classList.remove('keyboard-nav');
 });
 
 // Log when animations complete
@@ -102,3 +161,4 @@ document.addEventListener('animationend', (e) => {
     // Animation completed
   }
 });
+

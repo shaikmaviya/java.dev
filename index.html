@@ -2,8 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Elias – Web Designer & Front‑end Developer</title>
+  <title>Maviya – Java Full Stack Developer</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Maviya Shaik - Java Full Stack Developer specializing in Spring Boot and React">
+  <meta name="theme-color" content="#a855f7">
   <link rel="stylesheet" href="style.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,34 +15,34 @@
   <div class="page">
 
     <!-- SIDE BAR -->
-    <aside class="sidebar">
-      <div class="logo">M</div>
+    <aside class="sidebar" role="navigation" aria-label="Quick navigation">
+      <div class="logo" aria-label="Logo">M</div>
       <div class="sidebar-line"></div>
       <nav class="side-icons">
-        <a href="#home" title="Home">🏠</a>
-        <a href="#projects" title="Projects">💻</a>
-        <a href="#contacts" title="Contact">✉️</a>
+        <a href="#home" title="Home" aria-label="Navigate to Home">🏠</a>
+        <a href="#projects" title="Projects" aria-label="Navigate to Projects">💻</a>
+        <a href="#contacts" title="Contact" aria-label="Navigate to Contact">✉️</a>
       </nav>
     </aside>
 
     <!-- MAIN -->
-    <main>
+    <main role="main">
       <!-- HEADER NAV -->
-      <header class="top-nav">
+      <header class="top-nav" role="banner">
         <div class="brand">Maviya</div>
-        <nav class="menu">
+        <nav class="menu" role="navigation" aria-label="Main navigation">
           <a href="#home">#home</a>
           <a href="#projects">#projects</a>
           <a href="#skills">#skills</a>
           <a href="#about">#about</a>
           <a href="#contacts">#contact</a>
         </nav>
-        <div class="lang">EN</div>
-        <button class="burger" id="burger">☰</button>
+        <div class="lang" aria-label="Language selection">EN</div>
+        <button class="burger" id="burger" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
       </header>
 
       <!-- HERO -->
-      <section id="home" class="section hero">
+      <section id="home" class="section hero" role="region" aria-label="Hero section">
         <div class="hero-text">
           <p class="kicker">Hello! I'm Maviya Shaik</p>
           <h1>Java Full Stack Developer</h1>
@@ -51,74 +53,69 @@
           <p class="subtitle">
             Specialized in backend development with Spring Boot, REST APIs, and full-stack solutions using React.
           </p>
-          <button class="btn-primary">Get in touch</button>
+          <button class="btn-primary" aria-label="Get in touch">Get in touch</button>
         </div>
 
         <div class="hero-visual">
-          <div class="hero-shapes"></div>
+          <div class="hero-shapes" aria-hidden="true"></div>
           <div class="hero-img">
-            <img src="ai pic.jpeg" alt="Maviya Shaik" width="500" height="350" />
-            <div class="avatar"></div>
-          </div>
-          <div class="status-tag">
-            <span class="dot"></span>
-            Java Full Stack Developer Intern at <span class="accent">Tap Academy</span>
+            <img src="pic.jpeg" alt="Maviya Shaik - Java Full Stack Developer" width="260" height="320" loading="lazy" />
           </div>
         </div>
       </section>
 
       <!-- QUOTE -->
-      <section class="section quote">
+      <section class="section quote" role="region" aria-label="Quote section">
         <div class="quote-card">
-          <div class="quote-mark">“</div>
+          <div class="quote-mark" aria-hidden="true">"</div>
           <p>Code is read much more often than it is written - Guido van Rossum</p>
           <div class="quote-author">– Building better software, one line at a time</div>
         </div>
       </section>
 
       <!-- PROJECTS -->
-      <section id="projects" class="section">
+      <section id="projects" class="section" role="region" aria-label="Projects section">
         <div class="section-header">
           <h2>#projects</h2>
-          <a href="#" class="view-all">View all →</a>
+          <a href="#" class="view-all" aria-label="View all projects">View all →</a>
         </div>
 
-        <div class="cards-grid">
+        <div class="cards-grid" role="list">
           <!-- Card 1 -->
-          <article class="card">
-            <div class="card-thumb card-thumb-1">Employee System</div>
+          <article class="card" role="listitem">
+            <div class="card-thumb card-thumb-1" aria-hidden="true">Employee System</div>
             <div class="card-body">
               <p class="card-title">Secure Employee Management System</p>
               <p class="card-desc">Java, Spring Boot, MySQL, React</p>
               <p class="card-tech">RESTful APIs • Role-Based Access • Secure Data Handling</p>
               <div class="card-actions">
-                <button class="btn-secondary">GitHub ⇨</button>
+                <button class="btn-secondary" aria-label="View Employee System on GitHub">GitHub ⇨</button>
               </div>
             </div>
           </article>
 
           <!-- Card 2 -->
-          <article class="card">
-            <div class="card-thumb card-thumb-2">E-Commerce</div>
+          <article class="card" role="listitem">
+            <div class="card-thumb card-thumb-2" aria-hidden="true">E-Commerce</div>
             <div class="card-body">
               <p class="card-title">Mini E-Commerce Application</p>
               <p class="card-desc">Java, Spring Boot, MySQL</p>
               <p class="card-tech">Shopping Cart • Order Management • Product Listing</p>
               <div class="card-actions">
-                <button class="btn-secondary">GitHub ⇨</button>
+                <button class="btn-secondary" aria-label="View E-Commerce project on GitHub">GitHub ⇨</button>
               </div>
             </div>
           </article>
 
           <!-- Card 3 -->
-          <article class="card">
-            <div class="card-thumb card-thumb-3">Full Stack</div>
+          <article class="card" role="listitem">
+            <div class="card-thumb card-thumb-3" aria-hidden="true">Full Stack</div>
             <div class="card-body">
               <p class="card-title">Full Stack Solutions</p>
               <p class="card-desc">Spring Boot & React Development</p>
               <p class="card-tech">REST APIs • React Frontend • MySQL Database</p>
               <div class="card-actions">
-                <button class="btn-secondary">Portfolio ⇨</button>
+                <button class="btn-secondary" aria-label="View Full Stack Solutions portfolio">Portfolio ⇨</button>
               </div>
             </div>
           </article>
@@ -126,10 +123,10 @@
       </section>
 
       <!-- SKILLS -->
-      <section id="skills" class="section">
+      <section id="skills" class="section" role="region" aria-label="Skills section">
         <h2>#skills</h2>
-        <div class="skills-grid">
-          <div class="skill-block">
+        <div class="skills-grid" role="list">
+          <div class="skill-block" role="listitem">
             <h3>Programming</h3>
             <ul>
               <li>Java</li>
@@ -138,7 +135,7 @@
               <li>DSA</li>
             </ul>
           </div>
-          <div class="skill-block">
+          <div class="skill-block" role="listitem">
             <h3>Backend</h3>
             <ul>
               <li>Spring Boot</li>
@@ -147,7 +144,7 @@
               <li>Microservices</li>
             </ul>
           </div>
-          <div class="skill-block">
+          <div class="skill-block" role="listitem">
             <h3>Frontend</h3>
             <ul>
               <li>React</li>
@@ -156,7 +153,7 @@
               <li>JavaScript</li>
             </ul>
           </div>
-          <div class="skill-block">
+          <div class="skill-block" role="listitem">
             <h3>Database</h3>
             <ul>
               <li>MySQL</li>
@@ -165,7 +162,7 @@
               <li>SQL</li>
             </ul>
           </div>
-          <div class="skill-block">
+          <div class="skill-block" role="listitem">
             <h3>Tools & Platforms</h3>
             <ul>
               <li>Git & GitHub</li>
@@ -174,7 +171,7 @@
               <li>Postman</li>
             </ul>
           </div>
-          <div class="skill-block">
+          <div class="skill-block" role="listitem">
             <h3>Core Concepts</h3>
             <ul>
               <li>Computer Networks</li>
@@ -187,7 +184,7 @@
       </section>
 
       <!-- ABOUT -->
-      <section id="about" class="section about">
+      <section id="about" class="section about" role="region" aria-label="About section">
         <div class="about-text">
           <h2>#about‑me</h2>
           <p class="hello">Hello, I'm Maviya Shaik!</p>
@@ -200,15 +197,17 @@
             With hands-on experience in RESTful API development, database design, and full-stack solutions, 
             I'm driven to create efficient and user-friendly applications.
           </p>
-          <button class="btn-primary">Download Resume →</button>
+          <button class="btn-primary" aria-label="Download resume">Download Resume →</button>
         </div>
         <div class="about-img">
-          <div class="avatar avatar-large"></div>
+          <div class="about-img-wrapper">
+            <img src="pic.jpeg" alt="Maviya Shaik - Java Full Stack Developer" width="200" height="250" loading="lazy" />
+          </div>
         </div>
       </section>
 
       <!-- CONTACTS -->
-      <section id="contacts" class="section contacts">
+      <section id="contacts" class="section contacts" role="region" aria-label="Contacts section">
         <div class="contacts-text">
           <h2>#contacts</h2>
           <p>
@@ -219,22 +218,22 @@
         </div>
         <div class="contacts-card">
           <h3>Message me here</h3>
-          <p>📞 +91 7780113910</p>
-          <p>📧 shaikmaviya11@gmail.com</p>
-          <p>🔗 <a href="#">LinkedIn</a> | <a href="#">GitHub</a></p>
+          <p>📞 <a href="tel:+917780113910">+91 7780113910</a></p>
+          <p>📧 <a href="mailto:shaikmaviya11@gmail.com">shaikmaviya11@gmail.com</a></p>
+          <p>🔗 <a href="https://www.linkedin.com/in/maviya-shaik" target="_blank" rel="noopener noreferrer">LinkedIn</a> | <a href="https://github.com/shaikmaviya" target="_blank" rel="noopener noreferrer">GitHub</a></p>
         </div>
       </section>
 
       <!-- FOOTER -->
-      <footer class="footer">
+      <footer class="footer" role="contentinfo">
         <div class="footer-left">
-          <span>© Copyright 2026. Made by Maviya Shaik</span>
+          <span>© Copyright 2024. Made by Maviya Shaik</span>
         </div>
         <div class="footer-right">
-          <span>Connect</span>
-          <a href="#" title="LinkedIn">💼</a>
-          <a href="#" title="GitHub">💻</a>
-          <a href="#" title="Email">📧</a>
+          <span>Media</span>
+          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter">🐦</a>
+          <a href="https://www.linkedin.com/in/maviya-shaik" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">💼</a>
+          <a href="https://github.com/shaikmaviya" target="_blank" rel="noopener noreferrer" aria-label="GitHub">💻</a>
         </div>
       </footer>
     </main>
