@@ -162,3 +162,119 @@ document.addEventListener('animationend', (e) => {
   }
 });
 
+// ===== CONTACT & CTA BUTTON FUNCTIONALITY =====
+
+// "Get in touch" button - scroll to contacts section
+const getInTouchBtn = document.querySelector('.hero .btn-primary');
+if (getInTouchBtn) {
+  getInTouchBtn.addEventListener('click', () => {
+    const contactsSection = document.getElementById('contacts');
+    if (contactsSection) {
+      contactsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+}
+
+// "Download Resume" button
+const downloadResumeBtn = document.querySelector('.about .btn-primary');
+if (downloadResumeBtn) {
+  downloadResumeBtn.addEventListener('click', () => {
+    // Create a link element to download resume
+    // Replace 'resume.pdf' with your actual resume file path
+    const link = document.createElement('a');
+    link.href = 'resume.pdf'; // Change this to your resume file
+    link.download = 'Maviya_Resume.pdf';
+    link.style.display = 'none';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    
+    // Show toast notification
+    showNotification('Resume download started!', 'success');
+  });
+}
+
+// ===== NOTIFICATION SYSTEM =====
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.className = `notification notification-${type}`;
+  notification.textContent = message;
+  notification.style.cssText = `
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+    color: white;
+    border-radius: 4px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    z-index: 10000;
+    animation: slideInUp 0.3s ease-out;
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.animation = 'slideOutDown 0.3s ease-out';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+// ===== COPY EMAIL FUNCTIONALITY =====
+const emailLink = document.querySelector('a[href^="mailto:"]');
+if (emailLink) {
+  emailLink.addEventListener('click', (e) => {
+    e.preventDefault();
+    const email = emailLink.textContent;
+    navigator.clipboard.writeText(email).then(() => {
+      showNotification('Email copied to clipboard!', 'success');
+    }).catch(() => {
+      showNotification('Could not copy email', 'error');
+    });
+    
+    // Actually open email client as fallback
+    setTimeout(() => {
+      window.location.href = emailLink.href;
+    }, 500);
+  });
+}
+
+// ===== ACTIVE NAV LINK HIGHLIGHTING =====
+const navLinks = document.querySelectorAll('.menu a[href^="#"]');
+const sections = document.querySelectorAll('section[id]');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    const sectionHeight = section.clientHeight;
+    if (window.scrollY >= sectionTop - 200) {
+      current = section.getAttribute('id');
+    }
+  });
+
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+}, { passive: true });
+
+// ===== PORTFOLIO PROJECT BUTTON =====
+const portfolioBtn = document.querySelector('.card:nth-child(3) .btn-secondary');
+if (portfolioBtn) {
+  portfolioBtn.addEventListener('click', () => {
+    showNotification('Portfolio projects coming soon!', 'info');
+  });
+}
+
+// ===== PAGE VISIBILITY =====
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    document.title = 'Come back! 👋 – Maviya\'s Portfolio';
+  } else {
+    document.title = 'Maviya – Java Full Stack Developer';
+  }
+});
+

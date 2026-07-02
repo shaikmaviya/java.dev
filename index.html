@@ -21,6 +21,10 @@
       <nav class="side-icons">
         <a href="#home" title="Home" aria-label="Navigate to Home">🏠</a>
         <a href="#projects" title="Projects" aria-label="Navigate to Projects">💻</a>
+        <a href="#skills" title="Skills" aria-label="Navigate to Skills">🧠</a>
+        <a href="#internship" title="Internship" aria-label="Navigate to Internship">🧭</a>
+        <a href="#certifications" title="Certifications" aria-label="Navigate to Certifications">🏅</a>
+        <a href="#highlights" title="Highlights" aria-label="Navigate to Highlights">⭐</a>
         <a href="#contacts" title="Contact" aria-label="Navigate to Contact">✉️</a>
       </nav>
     </aside>
@@ -34,6 +38,9 @@
           <a href="#home">#home</a>
           <a href="#projects">#projects</a>
           <a href="#skills">#skills</a>
+          <a href="#internship">#internship</a>
+          <a href="#certifications">#certifications</a>
+          <a href="#highlights">#highlights</a>
           <a href="#about">#about</a>
           <a href="#contacts">#contact</a>
         </nav>
@@ -45,21 +52,22 @@
       <section id="home" class="section hero" role="region" aria-label="Hero section">
         <div class="hero-text">
           <p class="kicker">Hello! I'm Maviya Shaik</p>
-          <h1>Java Full Stack Developer</h1>
+          <p class="hero-role">Java Full Stack Developer</p>
           <h1>
-            Building secure and scalable <span class="accent">web applications</span> with
-            <span class="accent">Spring Boot & React</span>
+            I build secure web apps with <span class="accent">Spring Boot</span> and
+            <span class="accent">React</span>
           </h1>
           <p class="subtitle">
-            Specialized in backend development with Spring Boot, REST APIs, and full-stack solutions using React.
+            Focused on practical backend work, clean APIs, and frontends that feel simple to use.
           </p>
           <button class="btn-primary" aria-label="Get in touch">Get in touch</button>
         </div>
 
         <div class="hero-visual">
-          <div class="hero-shapes" aria-hidden="true"></div>
-          <div class="hero-img">
-            <img src="pic.jpeg" alt="Maviya Shaik - Java Full Stack Developer" width="260" height="320" loading="lazy" />
+          <div class="hero-frame">
+            <div class="hero-img">
+              <img src="pic.jpeg" alt="Maviya Shaik - Java Full Stack Developer" width="260" height="320" loading="eager" fetchpriority="high" decoding="async" />
+            </div>
           </div>
         </div>
       </section>
@@ -72,7 +80,6 @@
           <div class="quote-author">– Building better software, one line at a time</div>
         </div>
       </section>
-
       <!-- PROJECTS -->
       <section id="projects" class="section" role="region" aria-label="Projects section">
         <div class="section-header">
@@ -82,14 +89,14 @@
 
         <div class="cards-grid" role="list">
           <!-- Card 1 -->
-          <article class="card" role="listitem">
+          <article class="card best" role="listitem">
             <div class="card-thumb card-thumb-1" aria-hidden="true">Employee System</div>
             <div class="card-body">
               <p class="card-title">Secure Employee Management System</p>
               <p class="card-desc">Java, Spring Boot, MySQL, React</p>
               <p class="card-tech">RESTful APIs • Role-Based Access • Secure Data Handling</p>
               <div class="card-actions">
-                <button class="btn-secondary" aria-label="View Employee System on GitHub">GitHub ⇨</button>
+                <a href="https://github.com/shaikmaviya/Secure-Employee-Management-System.git" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="View Employee System on GitHub">GitHub ⇨</a>
               </div>
             </div>
           </article>
@@ -102,7 +109,7 @@
               <p class="card-desc">Java, Spring Boot, MySQL</p>
               <p class="card-tech">Shopping Cart • Order Management • Product Listing</p>
               <div class="card-actions">
-                <button class="btn-secondary" aria-label="View E-Commerce project on GitHub">GitHub ⇨</button>
+                <a href="https://github.com/shaikmaviya/MINI-E-Commerce.git" target="_blank" rel="noopener noreferrer" class="btn-secondary" aria-label="View E-Commerce project on GitHub">GitHub ⇨</a>
               </div>
             </div>
           </article>
@@ -121,7 +128,41 @@
           </article>
         </div>
       </section>
-
+        <!-- INTERNSHIP -->
+        <section id="internship" class="section" role="region" aria-label="Internship section" data-animation="fadeInUp 0.8s ease-out">
+          <div class="section-header">
+            <h2>#internship</h2>
+            <span class="view-all" aria-hidden="true">2023 — 2025</span>
+          </div>
+          <div class="timeline" role="list">
+            <article class="timeline-item best" role="listitem" data-animation="slideInUp 0.6s ease-out">
+              <div class="timeline-date">Jan 2025 – Present</div>
+              <div class="timeline-content">
+                <h3>Java Full Stack Intern • Tap Academy</h3>
+                <p>Building REST APIs, integrating React UI, and improving performance for enterprise-ready modules.</p>
+                <ul class="timeline-tags">
+                  <li>Spring Boot</li>
+                  <li>React</li>
+                  <li>MySQL</li>
+                  <li>JWT Security</li>
+                </ul>
+              </div>
+            </article>
+            <article class="timeline-item" role="listitem" data-animation="slideInUp 0.6s ease-out 0.05s both">
+              <div class="timeline-date">Apr 2024 – Jun 2024</div>
+              <div class="timeline-content">
+                <h3>Cybersecurity Intern • Intrainz</h3>
+                <p>Gained hands-on experience in network security and vulnerability assessment.</p>
+                <ul class="timeline-tags">
+                  <li>Threat Analysis</li>
+                  <li>Security Testing</li>
+                  <li>Vulnerability Assessment</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </section>
+        
       <!-- SKILLS -->
       <section id="skills" class="section" role="region" aria-label="Skills section">
         <h2>#skills</h2>
@@ -183,6 +224,57 @@
         </div>
       </section>
 
+        <!-- CERTIFICATIONS -->
+        <section id="certifications" class="section" role="region" aria-label="Certifications section" data-animation="fadeInUp 0.8s ease-out">
+          <div class="section-header">
+            <h2>#certifications</h2>
+            <span class="view-all" aria-hidden="true">Verified Skills</span>
+          </div>
+          <div class="cert-grid" role="list">
+            <article class="cert-card" role="listitem" data-animation="smoothScale 0.6s ease-out">
+              <h3>Java Full Stack (Tap Academy)</h3>
+              <p>Hands-on with Spring Boot, REST, React, and deployment best practices.</p>
+              <span class="cert-meta">Issued 2025</span>
+            </article>
+            <article class="cert-card" role="listitem" data-animation="smoothScale 0.6s ease-out 0.1s both">
+              <h3>SQL & Database Fundamentals</h3>
+              <p>Relational modeling, indexing, joins, and performance optimization.</p>
+              <span class="cert-meta">Issued 2024</span>
+            </article>
+            <article class="cert-card" role="listitem" data-animation="smoothScale 0.6s ease-out 0.2s both">
+              <h3>Problem Solving (DSA)</h3>
+              <p>Algorithmic thinking, complexity analysis, and interview-ready patterns.</p>
+              <span class="cert-meta">Issued 2024</span>
+            </article>
+          </div>
+        </section>
+
+        <!-- HIGHLIGHTS -->
+        <section id="highlights" class="section" role="region" aria-label="Highlights section" data-animation="fadeInUp 0.8s ease-out">
+          <div class="section-header">
+            <h2>#highlights</h2>
+            <span class="view-all" aria-hidden="true">Extra data</span>
+          </div>
+          <div class="highlights-grid" role="list">
+            <article class="highlight-card" role="listitem" data-animation="fadeInUp 0.6s ease-out">
+              <h3>8+ REST APIs</h3>
+              <p>Designed and delivered secure, versioned endpoints with proper validation.</p>
+            </article>
+            <article class="highlight-card" role="listitem" data-animation="fadeInUp 0.6s ease-out 0.1s both">
+              <h3>3+ Full-Stack Apps</h3>
+              <p>Built end-to-end apps with Spring Boot, React, and MySQL.</p>
+            </article>
+            <article class="highlight-card best" role="listitem" data-animation="fadeInUp 0.6s ease-out 0.4s both">
+              <h3>20+ LeetCode Solved</h3>
+              <p>Mastered data structures, algorithms, and interview-ready coding patterns.</p>
+            </article>
+            <article class="highlight-card" role="listitem" data-animation="fadeInUp 0.6s ease-out 0.3s both">
+              <h3>Clean Code</h3>
+              <p>Readable, testable modules with consistent documentation.</p>
+            </article>
+          </div>
+        </section>
+
       <!-- ABOUT -->
       <section id="about" class="section about" role="region" aria-label="About section">
         <div class="about-text">
@@ -198,11 +290,6 @@
             I'm driven to create efficient and user-friendly applications.
           </p>
           <button class="btn-primary" aria-label="Download resume">Download Resume →</button>
-        </div>
-        <div class="about-img">
-          <div class="about-img-wrapper">
-            <img src="pic.jpeg" alt="Maviya Shaik - Java Full Stack Developer" width="200" height="250" loading="lazy" />
-          </div>
         </div>
       </section>
 
@@ -227,7 +314,7 @@
       <!-- FOOTER -->
       <footer class="footer" role="contentinfo">
         <div class="footer-left">
-          <span>© Copyright 2024. Made by Maviya Shaik</span>
+          <span>© Copyright 2026. Made by Maviya Shaik</span>
         </div>
         <div class="footer-right">
           <span>Media</span>
